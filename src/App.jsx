@@ -3,7 +3,7 @@ import NewProject from "./components/NewProject";
 import NoProjectSelected from "./components/NoProjectSelected";
 import ProjectSidebar from "./components/ProjectSidebar";
 import SelectedProject from "./components/SelectedProject";
-import useLocalStorage from "./useLocalStorage";
+import useLocalStorage from "./hooks/useLocalStorage";
 
 function App() {
     // const [projectState, setProjectState] = useState(
