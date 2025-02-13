@@ -1,15 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NewProject from "./components/NewProject";
 import NoProjectSelected from "./components/NoProjectSelected";
 import ProjectSidebar from "./components/ProjectSidebar";
 import SelectedProject from "./components/SelectedProject";
+import useLocalStorage from "./useLocalStorage";
 
 function App() {
-    const [projectState, setProjectState] = useState({
+    // const [projectState, setProjectState] = useState(
+    //     JSON.parse(localStorage.getItem("projectData")) || {
+    //         selectedProjectId: undefined,
+    //         projects: [],
+    //         tasks: [],
+    //     }
+    // );
+
+    //using UseLocalStorage Custom Hook
+    const [projectState, setProjectState] = useLocalStorage("projectData", {
         selectedProjectId: undefined,
         projects: [],
         tasks: [],
     });
+    // Using localStorage to save projets Data
+    // useEffect(() => {
+    //     localStorage.setItem("projectData", JSON.stringify(projectState));
+    // }, [projectState]);
 
     //Adding a NewTask
     function handleAddTask(text) {
